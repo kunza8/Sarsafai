@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himalayan Cleanup</title>
+    <script>
+      window.googleMapsLoaded = false;
+      window.initMap = function() {
+        console.log('Google Maps loaded successfully');
+        window.googleMapsLoaded = true;
+        window.dispatchEvent(new Event('googleMapsLoaded'));
+      };
+      window.gm_authFailure = function() {
+        console.error('Google Maps authentication failed');
+        alert('Google Maps API key is invalid. Please contact the developer to update the API key.');
+      };
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jBp9V4ywu4p4G1_z18_L3-kpGspgNeo&libraries=places&callback=initMap"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
